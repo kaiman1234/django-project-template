@@ -1,17 +1,37 @@
 _subdirectory: "template"
 
+user_name:
+    type: str
+    help: "Your name"
+
+user_email:
+    type: str
+    help: "Your email"
+
 project_name:
     type: str
-    help: What is your project name?
+    help: "What is your project name?"
+
+project_description:
+    type: str
+    help: "Description for your project"
+
+project_version:
+    type: str
+    help: "Version of your project"
+    default: "0.1.0"
 
 django_version:
     type: str
-    default: 5.1.6
+    default: "5.1.6"
+    when: false
 
 docs_version:
     type: str
-    default: 5.1
+    default: "{{ '.'.join(django_version.split('.')[:2]) }}"
+    when: false
 
 secret_key:
     type: str
     default: "{{ 999999999999999999999999999999999|ans_random|hash('sha512') }}"
+    when: false

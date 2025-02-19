@@ -1,0 +1,17 @@
+_subdirectory: "template"
+
+project_name:
+    type: str
+    help: What is your project name?
+
+django_version:
+    type: str
+    default: 5.1.6
+
+docs_version:
+    type: str
+    default: 5.1
+
+secret_key:
+    type: str
+    default: "{{ 999999999999999999999999999999999|ans_random|hash('sha512') }}"

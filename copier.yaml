@@ -40,3 +40,86 @@ secret_key:
     type: str
     default: "{{ 999999999999999999999999999999999|ans_random|hash('sha512') }}"
     when: false
+
+database:
+    type: str
+    help: Type of database
+    choices:
+        PostgreSQL: postgresql
+        MySQL: mysql
+        Sqlite: sqlite
+
+postgresql_host:
+    type: str
+    help: Host of the PostgreSQL database?
+    default: localhost
+    when: "{{ database == 'postgresql' }}"
+
+postgresql_port:
+    type: int
+    help: Port of the PostgreSQL database?
+    default: 5432
+    when: "{{ database == 'postgresql' }}"
+
+postgresql_dbname:
+    type: str
+    help: Name of the PostgreSQL database?
+    default: "{{ project_name }}"
+    when: "{{ database == 'postgresql' }}"
+
+postgresql_username:
+    type: str
+    help: Username for the PostgreSQL database? May be empty for ident authentication.
+    default: "{{ project_name }}"
+    when: "{{ database == 'postgresql' }}"
+
+postgresql_password:
+    type: str
+    help: Password for the PostgreSQL database?
+    when: "{{ database == 'postgresql' and postgresql_username != '' }}"
+
+mysql_host:
+    type: str
+    help: Host of the MySQL database?
+    default: localhost
+    when: "{{ database == 'mysql' }}"
+
+mysql_port:
+    type: int
+    help: Port of the MySQL database?
+    default: 3306
+    when: "{{ database == 'mysql' }}"
+
+mysql_dbname:
+    type: str
+    help: Name of the MySQL database?
+    default: "{{ project_name }}"
+    when: "{{ database == 'mysql' }}"
+
+mysql_username:
+    type: str
+    help: Username for the MySQL database?
+    default: "{{ project_name }}"
+    when: "{{ database == 'mysql' }}"
+
+mysql_password:
+    type: str
+    help: Password for the MySQL database?
+    when: "{{ database == 'mysql' }}"
+
+database_url:
+    type: str
+    help: URL of database
+    default: >-
+        {% if database == "postgresql" -%}
+        {{ database }}://
+        {%- if postgresql_username != '' %}{{ postgresql_username }}
+        {%- if postgresql_password != '' %}:{{ postgresql_password }}{% endif -%}
+        @{% endif -%}
+        {{ postgresql_host }}:{{ postgresql_port}}/{{ postgresql_dbname }}
+        {%- elif database == "mysql" -%}
+        {{ database }}://{{ mysql_username }}:{{ mysql_password }}@{{ mysql_host }}:{{ mysql_port}}/{{ mysql_dbname }}
+        {%- elif database == "sqlite" -%}
+        {{ database }}:///db.sqlite3
+        {%- endif %}
+    when: false

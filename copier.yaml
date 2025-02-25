@@ -38,7 +38,7 @@ docs_version:
 
 secret_key:
     type: str
-    default: "{{ 999999999999999999999999999999999|ans_random|hash('sha512') }}"
+    default: "{{ 50 | random_secret_key }}"
     when: false
 
 database:
@@ -123,3 +123,9 @@ database_url:
         {{ database }}:///db.sqlite3
         {%- endif %}
     when: false
+
+
+_jinja_extensions:
+    - copier_templates_extensions.TemplateExtensionLoader
+    - extensions/slugify.py:SlugifyExtension
+    - extensions/django.py:DjangoExtension

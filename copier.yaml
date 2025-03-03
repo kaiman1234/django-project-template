@@ -129,6 +129,11 @@ django_extensions:
     help: User django_extensions
     default: true
 
+django_model_utils:
+    type: bool
+    help: Use django-model-utils
+    default: true
+
 
 _jinja_extensions:
     - copier_templates_extensions.TemplateExtensionLoader

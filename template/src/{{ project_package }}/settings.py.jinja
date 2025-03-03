@@ -46,8 +46,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # third party apps
-{%- if django_extensions %}
+    {%- if django_extensions %}
     "django_extensions",{% endif %}
+    {%- if django_model_utils %}
+    "model_utils",{% endif %}
 ]
 
 MIDDLEWARE = [

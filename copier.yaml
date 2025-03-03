@@ -124,6 +124,11 @@ database_url:
         {%- endif %}
     when: false
 
+django_extensions:
+    type: bool
+    help: User django_extensions
+    default: true
+
 
 _jinja_extensions:
     - copier_templates_extensions.TemplateExtensionLoader

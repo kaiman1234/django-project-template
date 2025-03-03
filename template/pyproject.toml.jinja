@@ -17,6 +17,9 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.dependencies]
 django = "^{{ django_version }}"
+{%- if django_extensions %}
+django-extensions = "^3.2.0"
+{%- endif %}
 environs = {extras = ["django"], version = "^14.1.1"}
 {%- if database == "postgresql" %}
 psycopg = "^3.2.0"

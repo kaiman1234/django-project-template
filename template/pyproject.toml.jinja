@@ -23,6 +23,9 @@ django-extensions = "^3.2.0"
 {%- if django_model_utils %}
 django-model-utils = "^5.0.0"
 {%- endif %}
+{%- if django_model_utils %}
+django-waffle = "^4.2.0"
+{%- endif %}
 environs = {extras = ["django"], version = "^14.1.1"}
 {%- if database == "postgresql" %}
 psycopg = "^3.2.0"

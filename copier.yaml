@@ -1,4 +1,8 @@
+_skip_if_exists:
+    - .env
+
 _subdirectory: "template"
+
 
 user_name:
     type: str
@@ -133,6 +137,11 @@ django_model_utils:
     type: bool
     help: Use django-model-utils
     default: true
+
+django_waffle:
+    type: bool
+    help: "Use django-waffle?"
+    default: false
 
 
 _jinja_extensions:

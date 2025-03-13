@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     "django_extensions",{% endif %}
     {%- if django_model_utils %}
     "model_utils",{% endif %}
+    {%- if django_waffle %}
+    "waffle",{% endif %}
 ]
 
 MIDDLEWARE = [

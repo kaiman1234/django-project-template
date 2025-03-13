@@ -77,6 +77,21 @@ files = [
 ]
 
 [[package]]
+name = "django-waffle"
+version = "4.2.0"
+description = "A feature flipper for Django."
+optional = false
+python-versions = ">=3.8"
+groups = ["main"]
+files = [
+    {file = "django_waffle-4.2.0-py3-none-any.whl", hash = "sha256:774f45b929627c9d303620c85419ce1da54066f2082d741af014f5bbd747e372"},
+    {file = "django_waffle-4.2.0.tar.gz", hash = "sha256:97709550f4e75ce2a20b13e29f39777e1439a968569f2ee89398ca368afd586c"},
+]
+
+[package.dependencies]
+django = ">=3.2"
+
+[[package]]
 name = "environs"
 version = "14.1.1"
 description = "simplified environment variable parsing"
@@ -280,4 +295,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.12"
-content-hash = "8973eaacf9d51a0880ea74dfd992e2d1c4be980a5fa638486d1e1e7542879771"
+content-hash = "3b625436d0c0162e503e9e739da6f0cd85fca0133c5f966cd8c19927e8491b5f"

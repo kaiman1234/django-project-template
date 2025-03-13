@@ -1,5 +1,10 @@
-_skip_if_exists:
-    - .env
+_jinja_extensions:
+    - copier_templates_extensions.TemplateExtensionLoader
+    - extensions/slugify.py:SlugifyExtension
+    - extensions/django.py:DjangoExtension
+
+#_skip_if_exists:
+#    - .env
 
 _subdirectory: "template"
 
@@ -147,9 +152,3 @@ django_waffle:
     type: bool
     help: "Use django-waffle?"
     default: false
-
-
-_jinja_extensions:
-    - copier_templates_extensions.TemplateExtensionLoader
-    - extensions/slugify.py:SlugifyExtension
-    - extensions/django.py:DjangoExtension

@@ -133,6 +133,11 @@ database_url:
         {%- endif %}
     when: false
 
+django_debug:
+    type: bool
+    help: "Set DEBUG to true?"
+    default: true
+
 admin_path:
     type: str
     help: "Path to admin interface?"
